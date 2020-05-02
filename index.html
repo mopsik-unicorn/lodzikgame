@@ -1,0 +1,47 @@
+<html>
+<head>
+
+
+</head>
+<body onkeydown = "strzalki(event)">
+
+START UwU
+<img id="lodzik" src= "postac.png" style="position: absolute; z-index: 1"/>
+<img id="galka" src= "galka.png" style="position: absolute;" /> 
+
+<script>
+	var lodzikTop=0;
+	var lodzikLeft=0;
+	var krok = 32;
+
+	galka.style.top = 320;
+	galka.style.left = 320;
+
+	function move () {
+		lodzik.style.top = lodzikTop;
+		lodzik.style.left = lodzikLeft;
+		if (lodzikLeft+"px" == galka.style.left) {
+			if (lodzikTop+"px" == galka.style.top) { 
+				galka.style.left = los() * krok;
+				galka.style.top = los() * krok; 
+			}
+		}
+	}
+
+
+	function strzalki (event)	{
+		var strzalki1 = event.keyCode;
+		if (strzalki1 == 39) lodzikLeft = lodzikLeft + krok;
+		if (strzalki1 == 37) lodzikLeft = lodzikLeft - krok;
+		if (strzalki1 == 40) lodzikTop = lodzikTop + krok;
+		if (strzalki1 == 38) lodzikTop = lodzikTop - krok;
+  		move() ;	
+	}
+	function los () {
+		return Math.floor(Math.random()*12);
+	}
+</script>
+
+
+</body>
+</html>
